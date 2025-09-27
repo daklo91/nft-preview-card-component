@@ -17,66 +17,87 @@
 
     <style>
       :root {
-        /* Primary */
         --color-text-muted: #8bacda;
         --color-accent: #00fff7;
 
-        /* Neutral */
         --color-bg-main: #0d192b;
         --color-bg-card: #14253d;
         --color-line: #2f415b;
         --color-text: #ffffff;
       }
 
-      .nft-card {
-        font-family: "Outfit", sans-serif;
+      body {
+        background-color: var(--color-bg-main);
       }
 
-      .nft-card h1 {
+      .nft-card {
+        font-family: "Outfit", sans-serif;
+        background-color: var(--color-bg-card);
+      }
+
+      .nft-card h1 > a {
         font-weight: 600;
+        font-size: 20px;
+      }
+
+      .nft-card a {
+        color: var(--color-text);
+        text-decoration: none;
+      }
+
+      .nft-card a:active {
+        color: var(--color-accent);
       }
 
       .nft-card p {
         font-size: 18px;
+      }
+
+      p.loud {
+        color: var(--color-accent);
         font-weight: 400;
       }
 
-      .nft-card p.muted {
+      p.muted {
+        color: var(--color-text-muted);
         font-weight: 300;
       }
     </style>
   </head>
   <body>
     <main>
-      <article class="nft-card">
+      <article aria-label="NFT Card" class="nft-card">
         <a href="#">
-          <img
-            src="images/image-equilibrium.jpg"
-            alt="Equilibrium cube artwork"
-          />
+          <img aria-hidden="true" src="images/image-equilibrium.jpg" alt="" />
+          <h1>Equilibrium #3429</h1>
         </a>
 
-        <h1>
-          <a href="#">Equilibrium #3429</a>
-        </h1>
         <p class="muted">
           Our Equilibrium collection promotes balance and calm.
         </p>
 
         <div class="card-meta">
-          <p>
-            <img src="images/icon-ethereum.svg" alt="" aria-hidden="true" />
-            <span>0.041 ETH</span>
+          <p class="loud">
+            <img
+              src="images/icon-ethereum.svg"
+              alt=""
+              aria-hidden="true"
+            /><span>0.041 ETH</span>
           </p>
           <p class="muted">
-            <img src="images/icon-clock.svg" alt="" aria-hidden="true" />
-            <time datetime="P3D">3 days left</time>
+            <img src="images/icon-clock.svg" alt="" aria-hidden="true" /><time
+              datetime="P3D"
+              >3 days left</time
+            >
           </p>
         </div>
 
         <footer>
-          <img src="images/image-avatar.png" alt="Portrait of Jules Wyvern" />
-          <p>Creation of <a href="#">Jules Wyvern</a></p>
+          <img src="images/image-avatar.png" alt="" aria-hidden="true" />
+          <p class="muted">
+            Creation of
+            <a href="#">Jules Wyvern</a>
+          </p>
         </footer>
       </article>
     </main>
