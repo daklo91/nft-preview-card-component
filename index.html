@@ -18,7 +18,8 @@
     <style>
       :root {
         --color-text-muted: #8bacda;
-        --color-accent: #00fff7;
+        --color-accent: rgb(0, 255, 247);
+        --color-accent-50opacity: #00fff780;
 
         --color-bg-main: #0d192b;
         --color-bg-card: #14253d;
@@ -60,10 +61,32 @@
       }
 
       .inspect-button {
-        /* TODO: Possible part of a function.
-        Desc: Fix after styling, see figma hover section. */
         all: unset;
         cursor: pointer;
+        position: relative;
+      }
+
+      .inspect-button:hover > div {
+        opacity: 100%;
+      }
+
+      .inspect-button > img {
+        display: block;
+      }
+
+      .inspect-button > div {
+        transition: opacity ease-in 0.1s;
+        opacity: 0%;
+        height: 100%;
+        width: 100%;
+        background-color: var(--color-accent-50opacity);
+        position: absolute;
+        top: 0;
+        z-index: 10;
+        border-radius: 6px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
       }
 
       .nft-card h1 {
@@ -142,6 +165,9 @@
     <main>
       <article aria-label="NFT Card" class="nft-card">
         <button class="inspect-button">
+          <div>
+            <img aria-hidden="false" src="/images/icon-view.svg" alt="" />
+          </div>
           <img aria-hidden="true" src="images/image-equilibrium.jpg" alt="" />
         </button>
 
